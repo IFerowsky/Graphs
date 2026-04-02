@@ -82,20 +82,5 @@ private:
 };
 
 int main() {
-
-	Graph G1;
-
-	G1.addVertex(1);
-	G1.addVertex(2);
-	G1.addVertex(3);
-
-	G1.addEdge(1, 2);
-	G1.addEdge(1, 3);
-	G1.addEdge(2, 3);
-
-	G1.showGraph();
-	G1.removeEdge(1, 3);
-	G1.showGraph();
-
 	return 0;
 }
