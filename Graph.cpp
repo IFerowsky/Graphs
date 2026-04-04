@@ -16,7 +16,6 @@ public:
 	}
 
 	void addEdge(int vertex1, int vertex2) {
-
 		
 		if (m_graph.find(vertex1) == m_graph.end() || m_graph.find(vertex2) == m_graph.end()) {
 			std::cout << "Invalid vertex\n";
@@ -86,5 +85,17 @@ private:
 };
 
 int main() {
+	Graph G1;
+
+	G1.addVertex(1);
+	G1.addVertex(2);
+	G1.addVertex(3);
+
+	G1.addEdge(1,2);
+	G1.addEdge(1,3);
+	G1.addEdge(2,3);
+
+	G1.showGraph();
+
 	return 0;
 }
