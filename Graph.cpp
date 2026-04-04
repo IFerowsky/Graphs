@@ -106,6 +106,7 @@ int main() {
 		G1.addVertex(i);
 	}
 	
+
 	G1.addEdge(1,2);
 	G1.addEdge(1,5);
 	G1.addEdge(1,9);
@@ -142,7 +143,7 @@ void BFS(Graph& G,int n){
 		std::cout << "Odwiedzono: "<< n << "\n";
 
 		for(auto nextVertex : G.AdjustmentVerticies(n)){
-			if(visted.count(nextVertex)>0){
+			if(visted.count(nextVertex)){
 				continue;
 			}
 			q.push(nextVertex);
