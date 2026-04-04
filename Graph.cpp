@@ -8,6 +8,10 @@ public:
 	Graph() {};
 
 	void addVertex(int vertex) {
+		if (m_graph.find(vertex) != m_graph.end()) {
+			std::cout << "Vertex already exists\n";
+			return;
+		}
 		m_graph[vertex] = {};
 	}
 
