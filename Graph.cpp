@@ -2,6 +2,8 @@
 #include <vector>
 #include <map>
 #include <algorithm>
+#include <queue>
+#include <unordered_set>
 
 class Graph{
 public:
@@ -35,6 +37,16 @@ public:
 
 		m_graph[vertex1].push_back(vertex2);
 		m_graph[vertex2].push_back(vertex1);
+	}
+
+	std::vector<int> AdjustmentVerticies(int vertex){
+		if(m_graph.find(vertex)==m_graph.end()){
+			std::cout << "Vertex does not exists\n";
+		}else{
+			auto v1 = m_graph[vertex];
+			return v1;			
+		}
+
 	}
 
 	void showGraph() const{
@@ -84,20 +96,60 @@ private:
 	std::map<int, std::vector<int>> m_graph;
 };
 
+void BFS(Graph& G,int n);
+
 int main() {
 	Graph G1;
 
-	G1.addVertex(1);
-	G1.addVertex(2);
-	G1.addVertex(3);
+	for (size_t i = 1; i <= 10; i++)
+	{
+		G1.addVertex(i);
+	}
+	
 
 	G1.addEdge(1,2);
-	G1.addEdge(1,3);
+	G1.addEdge(1,5);
+	G1.addEdge(1,9);
+
 	G1.addEdge(2,3);
+	G1.addEdge(2,4);
+	
+	G1.addEdge(4,3);
 
-	G1.showGraph();
+	G1.addEdge(5,7);
+	G1.addEdge(5,8);
+	G1.addEdge(5,6);
 
-	//another test command made by iferowsky
+	G1.addEdge(8,10);
+	
+	G1.addEdge(9,10);
+
+	BFS(G1,1);
 
 	return 0;
+}
+
+void BFS(Graph& G,int n){
+	std::queue<int> q;
+	std::unordered_set<int> visted;
+
+	q.push(n);
+
+	while(!q.empty()){
+
+		n = q.front();
+		visted.insert(n);
+
+		std::cout << "Odwiedzono: "<< n << "\n";
+
+		for(auto nextVertex : G.AdjustmentVerticies(n)){
+			if(visted.count(nextVertex)){
+				continue;
+			}
+			q.push(nextVertex);
+			visted.insert(nextVertex);	
+			std::cout << "Dodadno: "<< nextVertex << "\n";
+		}
+		q.pop();
+	}
 }

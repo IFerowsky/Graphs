@@ -26,7 +26,7 @@ public:
 		if (std::find(v1.begin(), v1.end(), vertex2) != v1.end()) {
 			std::cout << "Edge already exists\n";
 			return;
-		}
+		}//sprawdza tylko dla jednej pary
 
 		m_graph[vertex1].push_back(vertex2);
 	}
@@ -94,11 +94,6 @@ int main() {
 	G1.addEdge(2,3);
 
 	G1.showGraph();
-
-    G1.removeEdge(3,2);
-    G1.removeEdge(2,3);
-
-    G1.showGraph();
 
 	return 0;
 }
