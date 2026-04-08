@@ -97,6 +97,7 @@ private:
 };
 
 void BFS(Graph& G,int n);
+void DFS(Graph& G,int n);
 
 int main() {
 	Graph G1;
