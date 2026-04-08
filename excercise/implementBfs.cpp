@@ -136,18 +136,17 @@ int main() {
 
     int n=0,p=0,a=0,b=0;
 
-    std::cin >> n;
+    std::cin >> n >> p;
     for (int i = 1; i <= n; i++)
     {
         G1.addVertex(i);
     }
-
-    std::cin >> p;
     for (int i = 0; i < p; i++)
     {
         std::cin >> a >> b;
         G1.addEdge(a,b);
     }
+    
     std::cin >> a >> b;
     BFS(G1,a,b);
 
